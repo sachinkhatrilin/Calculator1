@@ -1,7 +1,9 @@
 package com.skdesign.calculator;
 
+
 import static java.lang.Double.parseDouble;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +19,8 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 
 public class MainActivity extends AppCompatActivity {
-
-
     double num1;
     double num2;
-
-
     private AdView mAdView;
     boolean procAdd, procSub, procMul, procDiv, procSqrt, procSquare;
 
@@ -30,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -76,81 +76,71 @@ public class MainActivity extends AppCompatActivity {
         btn_9.setOnClickListener(v -> textInput.append("9"));
         btn_Zero.setOnClickListener(v -> textInput.append("0"));
         btn_Decimal.setOnClickListener(v -> textInput.append("."));
-
         btn_Clr.setOnClickListener(v -> {
             textInput.setText("0");
             textResult.setText("0");
         });
-
         btn_Back.setOnClickListener(v -> {
             String in = (textInput.getText().toString() + "");
             if (textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) {
                 textInput.setText("0");
             } else
-
                 textInput.setText(in.substring(0, in.length() - 1));
-
-
         });
 
         btn_Plus.setOnClickListener(v -> {
-            //   System.out.println(Double.parseDouble(textResult.getText().toString()));
             if ((textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) && textResult.getText().toString().equals("0")) {
                 textInput.setText(null);
             } else if (textResult.getText().toString().isEmpty() || textResult.getText().toString().equals(("0"))) {
                 num1 = Double.parseDouble(textInput.getText().toString() + "");
                 procAdd = true;
-                //    textResult.setText(num1+"");
-                textInput.setText(null);
+                textResult.setText(String.valueOf(num1));
+               textInput.setText(null);
+            } else if (!textResult.getText().toString().equals("0")) {
+                num1 = Double.parseDouble(textResult.getText().toString());
+                procAdd = true;
+               // textInput.setText(null);
 
-            } else {
-                if (!textResult.getText().toString().equals("0")) {
-                    num1 = Double.parseDouble(textResult.getText().toString());
-                    //       System.out.println("num1: " + num1);
-                    procAdd = true;
-                    textInput.setText(null);
-                }
+            } else if (num1 != 0 && num2 != 0) {
+
+                procAdd=false;
             }
 
 
         });
 
-
         btn_Min.setOnClickListener(v -> {
-
             if ((textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) && textResult.getText().toString().equals("0")) {
                 textInput.setText(null);
             } else if (textResult.getText().toString().isEmpty() || textResult.getText().toString().equals(("0"))) {
                 num1 = Double.parseDouble(textInput.getText().toString() + "");
                 procSub = true;
-
+                textResult.setText(String.valueOf(num1));
                 textInput.setText(null);
-            } else {
-                // textInput.setText((textResult.getText().toString()));
+            } else if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
-                //    System.out.println("num1: " + num1);
                 procSub = true;
-                textInput.setText(null);
+              //  textInput.setText(null);
+            } else if (num1 != 0 && num2 != 0) {
+
+                procSub=false;
             }
-
         });
-        btn_Mul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ((textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) && textResult.getText().toString().equals("0")) {
-                    textInput.setText(null);
-                } else if (textResult.getText().toString().isEmpty() || textResult.getText().toString().equals(("0"))) {
-                    num1 = Double.parseDouble(textInput.getText().toString() + "");
-                    procMul = true;
-                    textInput.setText(null);
-                } else {
-                    //    textInput.setText((textResult.getText().toString()));
-                    num1 = Double.parseDouble(textResult.getText().toString());
-                    //         System.out.println("num1: " + num1);
-                    procMul = true;
-                    textInput.setText(null);
-                }
+        btn_Mul.setOnClickListener(v -> {
+            if ((textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) && textResult.getText().toString().equals("0")) {
+                textInput.setText(null);
+            } else if (textResult.getText().toString().isEmpty() || textResult.getText().toString().equals(("0"))) {
+                num1 = Double.parseDouble(textInput.getText().toString() + "");
+                procMul = true;
+                textResult.setText(String.valueOf(num1));
+                textInput.setText(null);
+            } else if (!textResult.getText().toString().equals("0")) {
+                num1 = Double.parseDouble(textResult.getText().toString());
+                procMul = true;
+              //  textInput.setText(null);
+            }else if (num1 != 0 && num2 != 0) {
 
+                procMul=false;
             }
         });
         btn_Div.setOnClickListener(v -> {
@@ -159,13 +149,15 @@ public class MainActivity extends AppCompatActivity {
             } else if (textResult.getText().toString().isEmpty() || textResult.getText().toString().equals(("0"))) {
                 num1 = Double.parseDouble(textInput.getText().toString() + "");
                 procDiv = true;
+                textResult.setText(String.valueOf(num1));
                 textInput.setText(null);
-            } else {
-                //    textInput.setText((textResult.getText().toString()));
+            } else  if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
-                //     System.out.println("num1: " + num1);
                 procDiv = true;
-                textInput.setText(null);
+             //   textInput.setText(null);
+            } else if (num1 != 0 && num2 != 0) {
+
+                procDiv=false;
             }
         });
         btn_Sqrt.setOnClickListener(v -> {
@@ -176,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 procSqrt = true;
                 textInput.setText(null);
             } else {
-                //    textInput.setText((textResult.getText().toString()));
                 num1 = Double.parseDouble(textResult.getText().toString());
-                //    System.out.println("num1: " + num1);
                 procSqrt = true;
                 textInput.setText(null);
             }
@@ -191,69 +181,56 @@ public class MainActivity extends AppCompatActivity {
                 procSquare = true;
                 textInput.setText(null);
             } else {
-                //    textInput.setText((textResult.getText().toString()));
                 num1 = Double.parseDouble(textResult.getText().toString());
-                //  System.out.println("num1: " + num1);
                 procSquare = true;
                 textInput.setText(null);
             }
         }));
-
-        btn_Equals.setOnClickListener(v -> {
-            if (textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) {
-                textInput.setText("0");
-            } else
-                num2 = parseDouble(textInput.getText().toString() + "");
-            //    num3 = parseDouble(textResult.getText().toString() + "");
-
-            if (procAdd) {
-
-                //    System.out.println(num1 + " "+num2);
-                textResult.setText(num1 + num2 + "");
-
-                num1 = parseDouble(textResult.getText().toString());
-                textInput.setText(null);
-                procAdd = false;
-
+        btn_Equals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (textInput.getText().toString().isEmpty() || textInput.getText().toString().equals("0")) {
+                    textInput.setText("0");
+                } else
+                    num2 = parseDouble(textInput.getText().toString() + "");
+                if (procAdd) {
+                    textResult.setText(num1 + num2 + "");
+                    num1 = parseDouble(textResult.getText().toString());
+                    textInput.setText(null);
+                    procAdd = false;
+                }
+                if (procSub) {
+                    textResult.setText((num1 - num2) + "");
+                    num1 = parseDouble(textResult.getText().toString());
+                    textInput.setText(null);
+                    procSub = false;
+                }
+                if (procMul) {
+                    textResult.setText(num1 * num2 + "");
+                    num1 = parseDouble(textResult.getText().toString());
+                    textInput.setText(null);
+                    procMul = false;
+                }
+                if (procDiv) {
+                    textResult.setText((num1 / num2) + "");
+                    textInput.setText(null);
+                    procDiv = false;
+                }
+                if (procSqrt) {
+                    textResult.setText(Math.sqrt(num1) + "");
+                    textInput.setText(null);
+                    procSqrt = false;
+                }
+                if (procSquare) {
+                    textResult.setText(num1 * num1 + "");
+                    textInput.setText(null);
+                    procSquare = false;
+                }
             }
-            if (procSub) {
-                textResult.setText((num1 - num2) + "");
-                num1 = parseDouble(textResult.getText().toString());
-                textInput.setText(null);
-                procSub = false;
-            }
-
-            if (procMul) {
-                textResult.setText(num1 * num2 + "");
-                num1 = parseDouble(textResult.getText().toString());
-                textInput.setText(null);
-                procMul = false;
-
-            }
-            if (procDiv) {
-                textResult.setText((num1 / num2) + "");
-                textInput.setText(null);
-                procDiv = false;
-
-
-            }
-            if (procSqrt) {
-                textResult.setText(Math.sqrt(num1) + "");
-                textInput.setText(null);
-                procSqrt = false;
-
-            }
-            if (procSquare) {
-                textResult.setText(num1 * num1 + "");
-                textInput.setText(null);
-                procSquare = false;
-            }
-
-
         });
-
-
     }
-
-
 }
+
+
+
+
