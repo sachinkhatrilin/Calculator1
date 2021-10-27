@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
                 num1 = Double.parseDouble(textInput.getText().toString() + "");
                 procAdd = true;
                 textResult.setText(String.valueOf(num1));
-               textInput.setText(null);
+                textInput.setText(null);
             } else if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
                 procAdd = true;
-               // textInput.setText(null);
+                // textInput.setText(null);
 
             } else if (num1 != 0 && num2 != 0) {
 
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
                 procSub = true;
-              //  textInput.setText(null);
+                //  textInput.setText(null);
             } else if (num1 != 0 && num2 != 0) {
 
                 procSub=false;
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
                 procMul = true;
-              //  textInput.setText(null);
+                //  textInput.setText(null);
             }else if (num1 != 0 && num2 != 0) {
 
                 procMul=false;
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             } else  if (!textResult.getText().toString().equals("0")) {
                 num1 = Double.parseDouble(textResult.getText().toString());
                 procDiv = true;
-             //   textInput.setText(null);
+                //   textInput.setText(null);
             } else if (num1 != 0 && num2 != 0) {
 
                 procDiv=false;
