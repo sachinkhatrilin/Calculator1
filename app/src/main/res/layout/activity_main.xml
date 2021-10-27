@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
+    android:fitsSystemWindows="true"
     android:padding="2dp"
+
     android:visibility="visible"
     tools:context=".MainActivity"
-    tools:visibility="visible"
-
-android:fitsSystemWindows="true"
-    >
+    tools:visibility="visible">
 
     <Button
         android:id="@+id/btn_Min"
@@ -30,7 +29,8 @@ android:fitsSystemWindows="true"
         android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_3"
-        app:layout_constraintTop_toBottomOf="@+id/button_Plus" />
+        app:layout_constraintTop_toBottomOf="@+id/button_Plus"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_Div"
@@ -49,7 +49,8 @@ android:fitsSystemWindows="true"
         android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_9"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Clr" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Clr"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_Plus"
@@ -68,7 +69,8 @@ android:fitsSystemWindows="true"
         android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_6"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Div" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Div"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_Equals"
@@ -146,7 +148,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_2"
-        app:layout_constraintTop_toBottomOf="@+id/btn_6" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_6"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_2"
@@ -163,7 +166,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_1"
-        app:layout_constraintTop_toBottomOf="@+id/btn_5" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_5"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_1"
@@ -180,7 +184,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_4" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_4"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_6"
@@ -197,7 +202,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_5"
-        app:layout_constraintTop_toBottomOf="@+id/btn_9" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_9"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_5"
@@ -214,7 +220,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_4"
-        app:layout_constraintTop_toBottomOf="@+id/btn_8" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_8"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_4"
@@ -231,7 +238,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_7" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_7"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_9"
@@ -248,7 +256,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_8"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Back" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Back"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_8"
@@ -265,7 +274,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_7"
-        app:layout_constraintTop_toBottomOf="@+id/btn_square" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_square"
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -276,12 +286,14 @@ android:fitsSystemWindows="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:visibility="visible"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textResult"
@@ -314,7 +326,7 @@ android:fitsSystemWindows="true"
         android:layout_width="80dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:hapticFeedbackEnabled="false"
         android:shadowColor="@color/shadow"
         android:shadowDx="1"
@@ -327,6 +339,7 @@ android:fitsSystemWindows="true"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput"
+        tools:ignore="TextContrastCheck"
         tools:visibility="visible" />
 
     <TextView
@@ -360,7 +373,7 @@ android:fitsSystemWindows="true"
         android:layout_width="80dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:shadowColor="@color/shadow"
         android:shadowDx="1"
         android:shadowDy="1"
@@ -373,6 +386,7 @@ android:fitsSystemWindows="true"
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/btn_Sqrt"
         app:layout_constraintTop_toBottomOf="@+id/textInput"
+        tools:ignore="TextContrastCheck"
         tools:visibility="visible" />
 
     <Button
@@ -380,7 +394,7 @@ android:fitsSystemWindows="true"
         android:layout_width="80dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:shadowColor="@color/shadow"
         android:shadowDx="1"
         android:shadowDy="1"
@@ -391,14 +405,15 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toEndOf="@+id/btn_square"
-        app:layout_constraintTop_toBottomOf="@+id/textInput" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_Clr"
         android:layout_width="80dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
         android:shadowColor="@color/shadow"
         android:shadowDx="1"
@@ -410,7 +425,8 @@ android:fitsSystemWindows="true"
         android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_Back"
-        app:layout_constraintTop_toBottomOf="@+id/textInput" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_7"
@@ -427,7 +443,8 @@ android:fitsSystemWindows="true"
         android:textStyle="bold"
         android:translationZ="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Sqrt" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Sqrt"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btn_Zero"

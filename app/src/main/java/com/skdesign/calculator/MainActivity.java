@@ -3,12 +3,14 @@ package com.skdesign.calculator;
 
 import static java.lang.Double.parseDouble;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private AdView mAdView;
     boolean procAdd, procSub, procMul, procDiv, procSqrt, procSquare;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
             }
         });
         mAdView = findViewById(R.id.adView);
